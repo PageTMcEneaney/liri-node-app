@@ -8,16 +8,20 @@ var keys = require("./keys.js");
 
 var spotify = new Spotify(keys.spotify);
 var control = process.argv[2];
+var whatItSays = 0;
 
-var concert = function () {
+var concert = function (whatItSays) {
     var artist = "Elton John"
 
     var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp&date=2019-01-01%2C2020-01-01";
 
     if (process.argv[3]) {
         artist = process.argv[3];
-        queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp&date=2019-01-01%2C2020-01-01";
+    } else if (whatItSays !== "") {
+        artist = whatItSays;
     }
+
+    queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp&date=2019-01-01%2C2020-01-01";
 
     axios.get(queryUrl).then(
         function (response) {
@@ -57,13 +61,13 @@ var concert = function () {
             console.log(error.config);
         });
 }
-var spotifySong = function (fsSong) {
+var spotifySong = function (whatItSays) {
     var song = "The Sign Ace of Base"
 
     if (process.argv[3]) {
         song = process.argv[3];
-    } else if (fsSong) {
-        song = fsSong;
+    } else if (whatItSays !== "") {
+        song = whatItSays;
     }
     spotify.search({ type: 'track', query: song }, function (err, data) {
         if (err) {
@@ -82,15 +86,19 @@ var spotifySong = function (fsSong) {
 
     });
 }
-var movie = function () {
+var movie = function (whatItSays) {
     var movie = "Mr. Nobody";
 
     var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
     if (process.argv[3]) {
         movie = process.argv[3];
-        queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+    } else if (whatItSays !== "") {
+        movie = whatItSays;
     }
+
+    queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+
 
     axios.get(queryUrl).then(
         function (response) {
@@ -141,25 +149,31 @@ var movie = function () {
 var filesystem = function () {
     fs.readFile("random.txt", "utf8", function (err, data) {
         var split = data.split(",");
-        var fsSong = split[1];
-        spotifySong(fsSong)
+        var noQuotes = split[1].split('"')
+        whatItSays = noQuotes[1];
+        switchTable(split[0])
     });
 
 }
+var switchTable = function(control) {
 
 switch (control) {
     case "concert-this":
-        concert();
+        concert(whatItSays);
         break;
     case "spotify-this-song":
-        spotifySong();
+        spotifySong(whatItSays);
         break;
     case "movie-this":
-        movie();
+        movie(whatItSays);
         break;
     case "do-what-it-says":
         filesystem();
         break;
     default:
-        console.log("Please enter a real command: concert-this, spotify-this-song, movie-this, or do-what-it-says")
+    console.log(control);    
+    console.log("Please enter a real command: concert-this, spotify-this-song, movie-this, or do-what-it-says")
 }
+}
+
+switchTable(control);
