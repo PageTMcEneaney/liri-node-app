@@ -8,7 +8,32 @@ var keys = require("./keys.js");
 
 var spotify = new Spotify(keys.spotify);
 var control = process.argv[2];
-var whatItSays = 0;
+var whatItSays = "";
+var txt = ""
+
+var logInput = function() {
+
+    if (process.argv[3]) {
+        txt = process.argv[3];
+    } else {
+        fs.readFile("random.txt", "utf8", function (err, data) {
+            var split = data.split(",");
+            var noQuotes = split[1].split('"')
+            txt = noQuotes[1];
+            if (err) throw err;
+
+        });
+    }
+
+    fs.appendFile("log.txt", "\n\n" + control + ": " + txt, function (err) {
+        if (err) throw err;
+        });
+}
+var logData = function(condensed) {
+    fs.appendFile("log.txt", condensed, function (err) {
+        if (err) throw err;
+    });
+}
 
 var concert = function (whatItSays) {
     var artist = "Elton John"
@@ -25,20 +50,18 @@ var concert = function (whatItSays) {
 
     axios.get(queryUrl).then(
         function (response) {
+            console.log("\nYou searched: " + artist);
+
             for (var i = 0; i < 5; i++) {
-                console.log("You searched: " + artist);
-                console.log("---------------Lineup---------------");
-                console.log(response.data[i].lineup);
-                console.log("---------------Venue Name---------------");
-                console.log(response.data[i].venue.name);
-                console.log("---------------Venu Location---------------");
-                console.log(response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country);
-                console.log("---------------Date of Event---------------");
-                console.log(moment(response.data[i].datetime).format("dddd, MMMM Do YYYY, h:mm:ss a"));
-                console.log();
+                var condensed = "\nLineup: " + response.data[i].lineup + "\nVenue Name: " + response.data[i].venue.name + 
+                "\nVenue Location: " + response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country + 
+                "\nDate of Event: " + (moment(response.data[i].datetime).format("dddd, MMMM Do YYYY, h:mm:ss a")) +
+                "\n------------------------------";
 
+                console.log(condensed)
+
+                logData(condensed);
             }
-
         })
         .catch(function (error) {
             if (error.response) {
@@ -63,7 +86,6 @@ var concert = function (whatItSays) {
 }
 var spotifySong = function (whatItSays) {
     var song = "The Sign Ace of Base"
-
     if (process.argv[3]) {
         song = process.argv[3];
     } else if (whatItSays !== "") {
@@ -73,23 +95,19 @@ var spotifySong = function (whatItSays) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-
+        var condensed = "\nArtist: " + data.tracks.items[0].album.artists[0].name + "\nSong: " +
+        data.tracks.items[0].name + "\nAlbum: " + data.tracks.items[0].album.name + "\nLink: " + 
+        data.tracks.items[0].href + "\n------------------------------";
         console.log("You searched: " + song);
-        console.log("---------------Artist---------------");
-        console.log(data.tracks.items[0].album.artists[0].name);
-        console.log("---------------Song---------------");
-        console.log(data.tracks.items[0].name);
-        console.log("---------------Album---------------");
-        console.log(data.tracks.items[0].album.name);
-        console.log("---------------Link---------------");
-        console.log(data.tracks.items[0].href);
+        logData(condensed);
+        console.log(condensed);
 
     });
 }
 var movie = function (whatItSays) {
+    var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
     var movie = "Mr. Nobody";
 
-    var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
     if (process.argv[3]) {
         movie = process.argv[3];
@@ -103,25 +121,14 @@ var movie = function (whatItSays) {
     axios.get(queryUrl).then(
         function (response) {
 
+            var condensed = "\nTitle: " + response.data.Title + "\nYear: " + response.data.Year + "\nIMDB Rating: " +
+            response.data.Ratings[0].Value + "\nRotten Tomatoes Rating: " + response.data.Ratings[1].Value + 
+            "\nProduction Country: " + response.data.Country + "\nLanguages: " + response.data.Language + 
+            "\nPlot: " + response.data.Plot + "\nActors: " + response.data.Actors + "\n------------------------------";
             console.log("You searched: " + movie);
-            console.log(movie + " was made in: " + response.data.Year);
-            console.log("---------------Title---------------");
-            console.log(response.data.Title);
-            console.log("---------------Year---------------");
-            console.log(response.data.Year);
-            console.log("---------------IMDB Rating---------------");
-            console.log(response.data.Ratings[0].Value);
-            console.log("---------------Rotten Tomatoes Rating---------------");
-            console.log(response.data.Ratings[1].Value);
-            console.log("---------------Production Country---------------");
-            console.log(response.data.Country);
-            console.log("---------------Languages---------------");
-            console.log(response.data.Language);
-            console.log("---------------Plot---------------");
-            console.log(response.data.Plot);
-            console.log("---------------Actors---------------");
-            console.log(response.data.Actors);
-
+            logData(condensed);
+            console.log(condensed);
+    
         })
         .catch(function (error) {
             if (error.response) {
@@ -146,34 +153,34 @@ var movie = function (whatItSays) {
 
 
 }
-var filesystem = function () {
+var doWhatItSays = function () {
     fs.readFile("random.txt", "utf8", function (err, data) {
         var split = data.split(",");
         var noQuotes = split[1].split('"')
         whatItSays = noQuotes[1];
+        txt = noQuotes[1];
         switchTable(split[0])
     });
 
 }
-var switchTable = function(control) {
-
-switch (control) {
-    case "concert-this":
-        concert(whatItSays);
-        break;
-    case "spotify-this-song":
-        spotifySong(whatItSays);
-        break;
-    case "movie-this":
-        movie(whatItSays);
-        break;
-    case "do-what-it-says":
-        filesystem();
-        break;
-    default:
-    console.log(control);    
-    console.log("Please enter a real command: concert-this, spotify-this-song, movie-this, or do-what-it-says")
-}
+var switchTable = function (control) {
+    logInput();
+    switch (control) {
+        case "concert-this":
+            concert(whatItSays);
+            break;
+        case "spotify-this-song":
+            spotifySong(whatItSays);
+            break;
+        case "movie-this":
+            movie(whatItSays);
+            break;
+        case "do-what-it-says":
+            doWhatItSays();
+            break;
+        default:
+            console.log("Please enter a real command: concert-this, spotify-this-song, movie-this, or do-what-it-says")
+    }
 }
 
 switchTable(control);

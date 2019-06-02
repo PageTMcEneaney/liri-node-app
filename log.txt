@@ -1,0 +1,149 @@
+concert-this: 
+Lineup: Elton John
+Venue Name: Taco Bell Arena
+Venue Location: Boise, ID, United States
+Date of Event: Friday, January 11th 2019, 8:00:00 pm
+------------------------------
+Lineup: Elton John
+Venue Name: Moda Center
+Venue Location: Portland, OR, United States
+Date of Event: Saturday, January 12th 2019, 8:00:00 pm
+------------------------------
+Lineup: Elton John
+Venue Name: Oracle Arena
+Venue Location: Oakland, CA, United States
+Date of Event: Friday, January 18th 2019, 8:00:00 pm
+------------------------------
+Lineup: Elton John
+Venue Name: Golden 1 Center
+Venue Location: Sacramento, CA, United States
+Date of Event: Wednesday, January 16th 2019, 8:00:00 pm
+------------------------------
+Lineup: Elton John
+Venue Name: Save Mart Center
+Venue Location: Fresno, CA, United States
+Date of Event: Tuesday, January 15th 2019, 8:00:00 pm
+------------------------------
+
+spotify-this-song: 
+Artist: Ace of Base
+Song: The Sign
+Album: The Sign (US Album) [Remastered]
+Link: https://api.spotify.com/v1/tracks/0hrBpAOgrt8RXigk83LLNE
+------------------------------
+
+movie-this: 
+Title: Mr. Nobody
+Year: 2009
+IMDB Rating: 7.8/10
+Rotten Tomatoes Rating: 67%
+Production Country: Belgium, Germany, Canada, France, USA, UK
+Languages: English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+------------------------------
+
+do-what-it-says: 
+
+do-what-it-says: yellow submarine
+Artist: The Beatles
+Song: Yellow Submarine - Remastered 2009
+Album: Revolver (Remastered)
+Link: https://api.spotify.com/v1/tracks/50xwQXPtfNZFKFeZ0XePWc
+------------------------------
+
+do-what-it-says: 
+
+do-what-it-says: migos
+Lineup: Migos
+Venue Name: Drai's Beachclub and Nightclub
+Venue Location: Las Vegas, NV, United States
+Date of Event: Saturday, January 19th 2019, 10:30:00 pm
+------------------------------
+Lineup: Migos
+Venue Name: Field Day 2019
+Venue Location: Sydney, ,  Australia
+Date of Event: Tuesday, January 1st 2019, 12:00:00 pm
+------------------------------
+Lineup: Migos
+Venue Name: Live! at the Battery
+Venue Location: Atlanta, GA, United States
+Date of Event: Friday, February 1st 2019, 9:00:00 pm
+------------------------------
+Lineup: Migos
+Venue Name: Drai's Beachclub and Nightclub
+Venue Location: Las Vegas, NV, United States
+Date of Event: Friday, March 8th 2019, 10:30:00 pm
+------------------------------
+Lineup: Migos
+Venue Name: State Farm Arena
+Venue Location: Atlanta, GA, United States
+Date of Event: Thursday, January 31st 2019, 9:00:00 pm
+------------------------------
+
+do-what-it-says: 
+
+do-what-it-says: down the line
+Artist: Gerry Rafferty
+Song: Right Down the Line
+Album: City To City
+Link: https://api.spotify.com/v1/tracks/2Xb6wJYGi0QXwURw5WWvI5
+------------------------------
+
+do-what-it-says: 
+
+do-what-it-says: princess bride
+Title: The Princess Bride
+Year: 1987
+IMDB Rating: 8.1/10
+Rotten Tomatoes Rating: 97%
+Production Country: USA
+Languages: English
+Plot: While home sick in bed, a young boy's grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.
+Actors: Cary Elwes, Mandy Patinkin, Chris Sarandon, Christopher Guest
+------------------------------
+
+concert-this: kurt vile
+Lineup: Kurt Vile
+Venue Name: Club XL
+Venue Location: Harrisburg, PA, United States
+Date of Event: Monday, February 11th 2019, 7:00:19 pm
+------------------------------
+Lineup: Kurt Vile
+Venue Name: Higher Ground
+Venue Location: South Burlington, VT, United States
+Date of Event: Thursday, February 14th 2019, 7:00:33 pm
+------------------------------
+Lineup: Kurt Vile
+Venue Name: Mtelus
+Venue Location: Montréal, , Canada
+Date of Event: Friday, February 15th 2019, 7:00:35 pm
+------------------------------
+Lineup: Kurt Vile
+Venue Name: Danforth Music Hall
+Venue Location: Toronto, , Canada
+Date of Event: Sunday, February 17th 2019, 7:00:20 pm
+------------------------------
+Lineup: Kurt Vile
+Venue Name: Danforth Music Hall
+Venue Location: Toronto, , Canada
+Date of Event: Saturday, February 16th 2019, 7:00:29 pm
+------------------------------
+
+spotify-this-song: down the line
+Artist: Gerry Rafferty
+Song: Right Down the Line
+Album: City To City
+Link: https://api.spotify.com/v1/tracks/2Xb6wJYGi0QXwURw5WWvI5
+------------------------------
+
+movie-this: princess bride
+Title: The Princess Bride
+Year: 1987
+IMDB Rating: 8.1/10
+Rotten Tomatoes Rating: 97%
+Production Country: USA
+Languages: English
+Plot: While home sick in bed, a young boy's grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.
+Actors: Cary Elwes, Mandy Patinkin, Chris Sarandon, Christopher Guest
+------------------------------
