@@ -33,17 +33,17 @@ concert-this "artist/band" | spotify-this-song "artist/band" | movie-this "movie
 concert-this
 ![concert-this gif](/gifs/concert-this_gif.gif)
 concert-this "kurt vile"
-![concert-this-unique gif](/gifs/concert-this-unique_gif.gif)
+![concert-this-unique gif](/gifs/concert-this-Unique_gif.gif)
 
 spotify-this-song
 ![spotify-this-song gif](/gifs/spotify-this-song_gif.gif)
 spotify-this-song "down the line"
-![spotify-this-song-unique gif](/gifs/spotify-this-song-unique_gif.gif)
+![spotify-this-song-unique gif](/gifs/spotify-this-song-Unique_gif.gif)
 
 movie-this
 ![movie-this gif](/gifs/movie-this_gif.gif)
 movie-this "princess-bride"
-![movie-this-unique gif](/gifs/movie-this-unique_gif.gif)
+![movie-this-unique gif](/gifs/movie-this-Unique_gif.gif)
 
 do-what-it-says
     concert-this,"migos"
