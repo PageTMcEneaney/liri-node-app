@@ -31,22 +31,22 @@ concert-this "artist/band" | spotify-this-song "artist/band" | movie-this "movie
 ##Gif examples of function
 --------------------------------
 concert-this
-![concert-this gif](/gifs/concert-this.gif)
+![concert-this gif](/gifs/concert-this_gif.gif)
 concert-this "kurt vile"
-![concert-this-unique gif](/gifs/concert-this-unique.gif)
+![concert-this-unique gif](/gifs/concert-this-unique_gif.gif)
 
 spotify-this-song
-![spotify-this-song gif](/gifs/spotify-this-song.gif)
+![spotify-this-song gif](/gifs/spotify-this-song_gif.gif)
 spotify-this-song "down the line"
-![spotify-this-song-unique gif](/gifs/spotify-this-song-unique.gif)
+![spotify-this-song-unique gif](/gifs/spotify-this-song-unique_gif.gif)
 
 movie-this
-![movie-this gif](/gifs/movie-this.gif)
+![movie-this gif](/gifs/movie-this_gif.gif)
 movie-this "princess-bride"
-![movie-this-unique gif](/gifs/movie-this-unique.gif)
+![movie-this-unique gif](/gifs/movie-this-unique_gif.gif)
 
 do-what-it-says
     concert-this,"migos"
     spotify-this-song,"down the line"
     movie-this,"princess bride"
-![do-what-it-says gif](/gifs/do-what-it-says.gif)
+![do-what-it-says gif](/gifs/do-what-it-says_gif.gif)
